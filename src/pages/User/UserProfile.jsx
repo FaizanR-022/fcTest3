@@ -25,6 +25,8 @@ import {
   EmptyState,
 } from "@/components/layout";
 
+import { RepliesSidebar } from "@/components/dashboard/RepliesSidebar";
+
 import { useUserProfile } from "@/hooks/useUserProfile";
 import { usePosts } from "@/hooks/usePosts";
 import useAuthStore from "@/store/authStore";
@@ -36,8 +38,16 @@ export default function UserProfile() {
   const navigate = useNavigate();
   const { user: currentUser } = useAuthStore();
 
-  const { user, posts, isOwnProfile, loading, postsLoading, error } =
-    useUserProfile(userId);
+  const {
+    user,
+    posts,
+    replies,
+    isOwnProfile,
+    loading,
+    postsLoading,
+    repliesLoading,
+    error,
+  } = useUserProfile(userId);
 
   const { deletePost } = usePosts();
 
@@ -89,6 +99,10 @@ export default function UserProfile() {
       }`;
     }
     return `${user?.campus}, Pakistan`;
+  };
+
+  const handleReplyClick = (postId) => {
+    navigate(`${ROUTES.ALL_POSTS}/${postId}`);
   };
 
   // Loading State
@@ -253,7 +267,7 @@ export default function UserProfile() {
                   </p>
                 ) : (
                   <div className="space-y-3">
-                    {posts.slice(0, 5).map((post) => (
+                    {posts.map((post) => (
                       <div
                         key={post.id}
                         className="p-3 rounded-lg border hover:border-primary cursor-pointer transition-colors"
@@ -277,7 +291,7 @@ export default function UserProfile() {
                         </div>
                       </div>
                     ))}
-                    {posts.length > 5 && (
+                    {/* {posts.length > 5 && (
                       <Button
                         variant="outline"
                         size="sm"
@@ -286,7 +300,7 @@ export default function UserProfile() {
                       >
                         See All
                       </Button>
-                    )}
+                    )} */}
                   </div>
                 )}
               </CardContent>
@@ -351,6 +365,14 @@ export default function UserProfile() {
                 )}
               </CardContent>
             </Card>
+
+            {user?.role === "alumni" && (
+              <RepliesSidebar
+                replies={replies}
+                loading={repliesLoading}
+                onReplyClick={handleReplyClick}
+              />
+            )}
           </div>
         </div>
 

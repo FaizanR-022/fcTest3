@@ -6,7 +6,7 @@ export const RepliesSidebar = ({
   replies,
   loading,
   onReplyClick,
-  onViewAll,
+  onViewAll = () => {},
 }) => {
   if (loading) {
     return (
@@ -51,7 +51,7 @@ export const RepliesSidebar = ({
               ))}
             </div>
 
-            {replies.length > 5 && (
+            {/* {replies.length > 5 && (
               <Button
                 variant="outline"
                 className="w-full mt-4"
@@ -59,7 +59,7 @@ export const RepliesSidebar = ({
               >
                 View All Replies →
               </Button>
-            )}
+            )} */}
           </>
         ) : (
           <div className="text-center py-6 text-sm text-muted-foreground">
