@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Mail, RefreshCw, Loader2 } from "lucide-react";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
 
-import useAuthStore from "@/store/authStore";
-import { useAuth } from "@/hooks/useAuth";
-import { ROUTES } from "@/constants/constants";
+import useAuthStore from "../../store/authStore";
+import { useAuth } from "../../hooks/useAuth";
+import { ROUTES } from "../../constants/constants";
 
 export default function VerifyEmail() {
   const navigate = useNavigate();

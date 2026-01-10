@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Bell, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
   DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import useNotificationStore from "@/store/useNotificationStore";
-import { formatDistanceToNow } from "@/utils/dateHelpers";
-import { ROUTES } from "@/constants/constants";
+} from "../ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { ScrollArea } from "../ui/scroll-area";
+import useNotificationStore from "../../store/useNotificationStore";
+import { formatDistanceToNow } from "../../utils/dateHelpers";
+import { ROUTES } from "../../constants/constants";
 
 export default function BellIcon() {
   const navigate = useNavigate();

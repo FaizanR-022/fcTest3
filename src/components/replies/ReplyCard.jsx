@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { Trash2 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { formatDistanceToNow } from "@/utils/dateHelpers";
-import { formatAlumniInfo, getInitials } from "@/utils/userInfoHelpers";
-import { ROUTES } from "@/constants/constants";
+import { Card, CardContent } from "../ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
+import { formatDistanceToNow } from "../../utils/dateHelpers";
+import { formatAlumniInfo, getInitials } from "../../utils/userInfoHelpers";
+import { ROUTES } from "../../constants/constants";
 
 export default function ReplyCard({ reply, onDelete, currentUserId }) {
   const navigate = useNavigate();

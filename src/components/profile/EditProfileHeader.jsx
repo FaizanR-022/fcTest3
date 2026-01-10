@@ -1,4 +1,4 @@
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 
 /**
  * Header for profile editing page with avatar, title, and description

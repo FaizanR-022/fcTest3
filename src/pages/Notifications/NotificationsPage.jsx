@@ -2,15 +2,15 @@ import { useEffect } from "react";
 import { Bell, Check, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
-import { PageContainer, PageContent, LoadingSpinner, ErrorMessage } from "@/components/layout";
+import { Card, CardContent } from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar";
+import { Separator } from "../../components/ui/separator";
+import { PageContainer, PageContent, LoadingSpinner, ErrorMessage } from "../../components/layout";
 
-import useNotificationStore from "@/store/useNotificationStore";
-import { formatDistanceToNow } from "@/utils/dateHelpers";
-import { ROUTES } from "@/constants/constants";
+import useNotificationStore from "../../store/useNotificationStore";
+import { formatDistanceToNow } from "../../utils/dateHelpers";
+import { ROUTES } from "../../constants/constants";
 
 export default function NotificationsPage() {
   const navigate = useNavigate();

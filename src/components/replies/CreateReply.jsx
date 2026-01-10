@@ -3,10 +3,10 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AlertCircle } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "../ui/button";
+import { Textarea } from "../ui/textarea";
 
-import { createReplySchema } from "@/utils/postValidationSchemas";
+import { createReplySchema } from "../../utils/postValidationSchemas";
 
 export const CreateReply = ({ currentUser, onSubmit, loading }) => {
   const [error, setError] = useState("");

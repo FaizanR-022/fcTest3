@@ -5,8 +5,8 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+} from "../ui/dialog";
+import { Button } from "../ui/button";
 
 export const ContactModal = ({ open, onClose, user }) => {
   const [copiedEmail, setCopiedEmail] = useState(false);

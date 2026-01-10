@@ -2,14 +2,14 @@ import { useEffect } from "react";
 import { Bell, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Button } from "../ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Separator } from "../ui/separator";
 
-import useNotificationStore from "@/store/useNotificationStore";
-import { formatDistanceToNow } from "@/utils/dateHelpers";
-import { ROUTES } from "@/constants/constants";
+import useNotificationStore from "../../store/useNotificationStore";
+import { formatDistanceToNow } from "../../utils/dateHelpers";
+import { ROUTES } from "../../constants/constants";
 
 export const NotificationWidget = () => {
   const navigate = useNavigate();

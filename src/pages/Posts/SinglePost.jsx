@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import { PostDetailView } from "@/components/posts/PostDetailView";
-import { CreateReply } from "@/components/replies/CreateReply";
-import { ReplyList } from "@/components/replies/ReplyList";
-import { ConfirmDialog } from "@/components/common/ConfirmDialog";
+import { PostDetailView } from "../../components/posts/PostDetailView";
+import { CreateReply } from "../../components/replies/CreateReply";
+import { ReplyList } from "../../components/replies/ReplyList";
+import { ConfirmDialog } from "../../components/common/ConfirmDialog";
 import { 
   PageContainer, 
   PageContent, 
   BackButton, 
   LoadingSpinner, 
   ErrorMessage 
-} from "@/components/layout";
+} from "../../components/layout";
 
-import { usePost } from "@/hooks/usePost";
-import useAuthStore from "@/store/authStore";
-import { ROUTES } from "@/constants/constants";
+import { usePost } from "../../hooks/usePost";
+import useAuthStore from "../../store/authStore";
+import { ROUTES } from "../../constants/constants";
 
 export default function SinglePost() {
   const { id } = useParams();

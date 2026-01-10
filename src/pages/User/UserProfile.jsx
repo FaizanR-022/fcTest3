@@ -11,11 +11,11 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { ConfirmDialog } from "@/components/common/ConfirmDialog";
+import { Button } from "../../components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar";
+import { Badge } from "../../components/ui/badge";
+import { ConfirmDialog } from "../../components/common/ConfirmDialog";
 import {
   PageContainer,
   PageContent,
@@ -23,15 +23,15 @@ import {
   LoadingSpinner,
   ErrorMessage,
   EmptyState,
-} from "@/components/layout";
+} from "../../components/layout";
 
-import { RepliesSidebar } from "@/components/dashboard/RepliesSidebar";
+import { RepliesSidebar } from "../../components/dashboard/RepliesSidebar";
 
-import { useUserProfile } from "@/hooks/useUserProfile";
-import { usePosts } from "@/hooks/usePosts";
-import useAuthStore from "@/store/authStore";
-import { ROUTES } from "@/constants/constants";
-import { formatDistanceToNow } from "@/utils/dateHelpers";
+import { useUserProfile } from "../../hooks/useUserProfile";
+import { usePosts } from "../../hooks/usePosts";
+import useAuthStore from "../../store/authStore";
+import { ROUTES } from "../../constants/constants";
+import { formatDistanceToNow } from "../../utils/dateHelpers";
 
 export default function UserProfile() {
   const { userId } = useParams();

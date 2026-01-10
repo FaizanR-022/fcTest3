@@ -2,15 +2,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Plus } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { PostList } from "@/components/posts/PostList";
-import { CreatePost } from "@/components/posts/CreatePost";
-import { ConfirmDialog } from "@/components/common/ConfirmDialog";
-import { PageContainer, PageHeader } from "@/components/layout";
+import { Button } from "../../components/ui/button";
+import { PostList } from "../../components/posts/PostList";
+import { CreatePost } from "../../components/posts/CreatePost";
+import { ConfirmDialog } from "../../components/common/ConfirmDialog";
+import { PageContainer, PageHeader } from "../../components/layout";
 
-import { usePosts } from "@/hooks/usePosts";
-import useAuthStore from "@/store/authStore";
-import { ROUTES } from "@/constants/constants";
+import { usePosts } from "../../hooks/usePosts";
+import useAuthStore from "../../store/authStore";
+import { ROUTES } from "../../constants/constants";
 
 export default function AllPosts() {
   const navigate = useNavigate();

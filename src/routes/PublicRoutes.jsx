@@ -1,8 +1,8 @@
 import { Navigate } from "react-router-dom";
-import useAuthStore from "@/store/authStore";
-import { ROUTES } from "@/constants/constants";
-import Header from "@/components/layout/Header/Header";
-import Footer from "@/components/layout/Footer/Footer";
+import useAuthStore from "../store/authStore";
+import { ROUTES } from "../constants/constants";
+import Header from "../components/layout/Header/Header";
+import Footer from "../components/layout/Footer/Footer";
 
 export default function PublicRoute({ children, darkMode, toggleDarkMode }) {
   const { isAuthenticated, user } = useAuthStore();

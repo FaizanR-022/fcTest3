@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import AlumniCard from "@/components/alumni/AlumniCard";
-import { AlumniSearchFilters } from "@/components/alumni/AlumniSearchFilters";
+import AlumniCard from "../../components/alumni/AlumniCard";
+import { AlumniSearchFilters } from "../../components/alumni/AlumniSearchFilters";
 import {
   Pagination,
   PaginationContent,
@@ -10,12 +10,12 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
-import { PageContainer, PageHeader, LoadingSpinner, ErrorMessage } from "@/components/layout";
+} from "../../components/ui/pagination";
+import { PageContainer, PageHeader, LoadingSpinner, ErrorMessage } from "../../components/layout";
 
-import { alumniService } from "@/services/alumniService";
-import { CAMPUSES, DEPARTMENTS, YEARS } from "@/constants/authConstants";
-import { ROUTES } from "@/constants/constants";
+import { alumniService } from "../../services/alumniService";
+import { CAMPUSES, DEPARTMENTS, YEARS } from "../../constants/authConstants";
+import { ROUTES } from "../../constants/constants";
 
 export default function AlumniList() {
   const navigate = useNavigate();

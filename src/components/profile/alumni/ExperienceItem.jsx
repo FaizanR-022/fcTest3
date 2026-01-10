@@ -1,9 +1,9 @@
 import { Trash2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import ControlledInput from "@/components/forms/ControlledInput";
-import ControlledSelect from "@/components/forms/ControlledSelect";
-import { YEARS } from "@/constants/authConstants";
+import { Button } from "../../ui/button";
+import { Label } from "../../ui/label";
+import ControlledInput from "../../forms/ControlledInput";
+import ControlledSelect from "../../forms/ControlledSelect";
+import { YEARS } from "../../../constants/authConstants";
 
 /**
  * Single previous experience item with company, position, and date range

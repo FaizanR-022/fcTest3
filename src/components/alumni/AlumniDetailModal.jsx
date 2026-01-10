@@ -1,16 +1,16 @@
 import { Mail, Phone, MapPin, Briefcase, Calendar, Building } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
+import { Button } from "../ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Badge } from "../ui/badge";
+import { ScrollArea } from "../ui/scroll-area";
+import { Separator } from "../ui/separator";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { getInitials } from "@/utils/userInfoHelpers";
+} from "../ui/dialog";
+import { getInitials } from "../../utils/userInfoHelpers";
 
 export function AlumniDetailModal({ alumni, open, onClose }) {
   if (!alumni) return null;

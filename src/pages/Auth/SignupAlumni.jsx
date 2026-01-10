@@ -4,30 +4,30 @@ import { UserPlus, Plus, Trash2, Eye, EyeOff } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { Label } from "../../components/ui/label";
+import { Separator } from "../../components/ui/separator";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "../../components/ui/select";
 
 import {
   CAMPUSES,
   DEPARTMENTS,
   GRADUATION_YEARS,
   YEARS,
-} from "@/constants/authConstants";
-import { alumniSignupSchema } from "@/utils/validationSchemas";
-import { ROUTES } from "@/constants/constants";
-import useAuthStore from "@/store/authStore";
-import { useAuth } from "@/hooks/useAuth";
-import ImageUpload from "@/components/common/ImageUpload";
+} from "../../constants/authConstants";
+import { alumniSignupSchema } from "../../utils/validationSchemas";
+import { ROUTES } from "../../constants/constants";
+import useAuthStore from "../../store/authStore";
+import { useAuth } from "../../hooks/useAuth";
+import ImageUpload from "../../components/common/ImageUpload";
 
 export default function SignupAlumni() {
   const { signupAlumni, error, clearError } = useAuth();

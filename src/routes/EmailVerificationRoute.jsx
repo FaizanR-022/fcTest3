@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
-import useAuthStore from "@/store/authStore";
-import { ROUTES } from "@/constants/constants";
+import useAuthStore from "../store/authStore";
+import { ROUTES } from "../constants/constants";
 
 function EmailVerificationRoute({ children }) {
   const { user } = useAuthStore();

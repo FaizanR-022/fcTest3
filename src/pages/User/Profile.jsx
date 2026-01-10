@@ -1,11 +1,11 @@
 // pages/User/Profile.jsx
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import useAuthStore from "@/store/authStore";
-import StudentProfile from "@/pages/Student/StudentProfile";
-import AlumniProfile from "@/pages/Alumni/AlumniProfile";
-import { ROUTES } from "@/constants/constants";
-import Loader from "@/components/common/Loader";
+import useAuthStore from "../../store/authStore";
+import StudentProfile from "../Student/StudentProfile";
+import AlumniProfile from "../Alumni/AlumniProfile";
+import { ROUTES } from "../../constants/constants";
+import Loader from "../../components/common/Loader";
 
 export default function Profile() {
   const { user, isAuthenticated } = useAuthStore();

@@ -1,6 +1,6 @@
 import { Plus, Loader2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import PostCard from "@/components/posts/PostCard";
+import { Button } from "../ui/button";
+import PostCard from "../posts/PostCard";
 
 export const MyPosts = ({
   posts,

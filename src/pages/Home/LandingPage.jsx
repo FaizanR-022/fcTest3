@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "../../components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
 import { Users, MessageSquare, Search, UserCheck, ArrowRight, Target, Zap } from "lucide-react";
-import useAuthStore from "@/store/authStore";
-import { ROUTES } from "@/constants/constants";
+import useAuthStore from "../../store/authStore";
+import { ROUTES } from "../../constants/constants";
 
 export default function LandingPage() {
   const navigate = useNavigate();

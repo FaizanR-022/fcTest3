@@ -1,6 +1,6 @@
 import { Plus } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { Button } from "../../ui/button";
+import { Separator } from "../../ui/separator";
 import { useFieldArray } from "react-hook-form";
 import ExperienceItem from "./ExperienceItem";
 

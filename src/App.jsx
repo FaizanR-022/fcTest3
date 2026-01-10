@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import AppRoutes from "./routes/AppRoutes";
 import useNotificationPolling from "./hooks/useNotificationPolling";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "./components/ui/sonner";
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {

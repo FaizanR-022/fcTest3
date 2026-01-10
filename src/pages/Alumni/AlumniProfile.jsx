@@ -1,9 +1,9 @@
 import { Save, Loader2 } from "lucide-react";
 import { Controller } from "react-hook-form";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Button } from "../../components/ui/button";
+import { Card, CardContent } from "../../components/ui/card";
+import { Separator } from "../../components/ui/separator";
 
 import { useAlumniProfile } from "../../hooks/useAlumniProfile";
 import useAuthStore from "../../store/authStore";

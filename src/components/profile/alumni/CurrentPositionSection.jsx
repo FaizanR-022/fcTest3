@@ -1,5 +1,5 @@
-import ControlledInput from "@/components/forms/ControlledInput";
-import { Separator } from "@/components/ui/separator";
+import ControlledInput from "../../forms/ControlledInput";
+import { Separator } from "../../ui/separator";
 
 /**
  * Current position section for alumni profile

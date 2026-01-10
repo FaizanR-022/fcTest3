@@ -15,20 +15,20 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
   DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import useAuthStore from "@/store/authStore";
-import useNotificationStore from "@/store/useNotificationStore";
-import { getInitials } from "@/utils/userInfoHelpers";
-import BellIcon from "@/components/notifications/BellIcon";
+} from "../ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Badge } from "../ui/badge";
+import useAuthStore from "../../store/authStore";
+import useNotificationStore from "../../store/useNotificationStore";
+import { getInitials } from "../../utils/userInfoHelpers";
+import BellIcon from "../notifications/BellIcon";
 
 export default function Header({ darkMode, toggleDarkMode }) {
   const navigate = useNavigate();

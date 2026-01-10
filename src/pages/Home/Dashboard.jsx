@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { WelcomeSection } from "@/components/dashboard/WelcomeSection";
-import { MyPosts } from "@/components/dashboard/MyPosts";
-import { UserInfoCard } from "@/components/dashboard/UserInfoCard";
-import { RepliesSidebar } from "@/components/dashboard/RepliesSidebar";
-import { CreatePost } from "@/components/posts/CreatePost";
-import { ConfirmDialog } from "@/components/common/ConfirmDialog";
-import NotificationWidget from "@/components/notifications/NotificationWidget";
-import { PageContainer, TwoColumnLayout } from "@/components/layout";
+import { WelcomeSection } from "../../components/dashboard/WelcomeSection";
+import { MyPosts } from "../../components/dashboard/MyPosts";
+import { UserInfoCard } from "../../components/dashboard/UserInfoCard";
+import { RepliesSidebar } from "../../components/dashboard/RepliesSidebar";
+import { CreatePost } from "../../components/posts/CreatePost";
+import { ConfirmDialog } from "../../components/common/ConfirmDialog";
+import NotificationWidget from "../../components/notifications/NotificationWidget";
+import { PageContainer, TwoColumnLayout } from "../../components/layout";
 
 import { useDashboard } from "../..//hooks/useDashboard";
-import { usePosts } from "@/hooks/usePosts";
-import useAuthStore from "@/store/authStore";
-import { ROUTES } from "@/constants/constants";
+import { usePosts } from "../../hooks/usePosts";
+import useAuthStore from "../../store/authStore";
+import { ROUTES } from "../../constants/constants";
 
 export default function Dashboard() {
   const navigate = useNavigate();

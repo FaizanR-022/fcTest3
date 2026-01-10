@@ -1,7 +1,7 @@
 import { Edit, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "../ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { ROUTES } from "../../constants/constants";
 
 export const ProfileHeader = ({ user, isOwnProfile, onContactClick }) => {

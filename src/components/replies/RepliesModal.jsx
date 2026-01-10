@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { Heart, MessageCircle, Trash2, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Loader } from "@/components/ui/loader";
+import { Button } from "../ui/button";
+import { Textarea } from "../ui/textarea";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Badge } from "../ui/badge";
+import { ScrollArea } from "../ui/scroll-area";
+import { Loader } from "../ui/loader";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { getInitials } from "@/utils/userInfoHelpers";
-import { formatRelativeTime } from "@/utils/dateHelpers";
+} from "../ui/dialog";
+import { getInitials } from "../../utils/userInfoHelpers";
+import { formatRelativeTime } from "../../utils/dateHelpers";
 
 export function RepliesModal({
   open,

@@ -1,4 +1,4 @@
-import ControlledInput from "@/components/forms/ControlledInput";
+import ControlledInput from "../../forms/ControlledInput";
 
 /**
  * Personal information section for student profile

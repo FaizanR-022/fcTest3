@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { GraduationCap, Briefcase } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ROUTES } from "@/constants/constants";
-import useAuthStore from "@/store/authStore";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
+import { ROUTES } from "../../constants/constants";
+import useAuthStore from "../../store/authStore";
 
 export default function SignupChoice() {
   const navigate = useNavigate();

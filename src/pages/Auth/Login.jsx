@@ -3,14 +3,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate, Link } from "react-router-dom";
 import { Eye, EyeOff, Users, MessageSquare, Search, GraduationCap } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ROUTES } from "@/constants/constants";
-import { loginSchema } from "@/utils/validationSchemas";
-import { useAuth } from "@/hooks/useAuth";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { Label } from "../../components/ui/label";
+import { Checkbox } from "../../components/ui/checkbox";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
+import { ROUTES } from "../../constants/constants";
+import { loginSchema } from "../../utils/validationSchemas";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function Login() {
   const { login, error, clearError } = useAuth();

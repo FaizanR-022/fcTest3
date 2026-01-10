@@ -1,28 +1,28 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { ROUTES } from "@/constants/constants";
+import { ROUTES } from "../constants/constants";
 import ProtectedRoute from "./ProtectedRoutes";
 import EmailVerificationRoute from "./EmailVerificationRoute";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 
 // Auth Pages
-import Login from "@/pages/Auth/Login";
-import SignupStudent from "@/pages/Auth/SignupStudent";
-import SignupAlumni from "@/pages/Auth/SignupAlumni";
-import SignupChoice from "@/pages/Auth/SignupChoice";
-import VerifyEmail from "@/pages/Auth/VerifyEmail";
+import Login from "../pages/Auth/Login";
+import SignupStudent from "../pages/Auth/SignupStudent";
+import SignupAlumni from "../pages/Auth/SignupAlumni";
+import SignupChoice from "../pages/Auth/SignupChoice";
+import VerifyEmail from "../pages/Auth/VerifyEmail";
 
 // Main Pages
-import LandingPage from "@/pages/Home/LandingPage";
-import Dashboard from "@/pages/Home/Dashboard";
-import AlumniList from "@/pages/Alumni/AlumniList";
-import AllPosts from "@/pages/Posts/AllPosts";
-import SinglePost from "@/pages/Posts/SinglePost";
-import Profile from "@/pages/User/Profile";
-import UserProfile from "@/pages/User/UserProfile";
-import EditProfile from "@/pages/User/EditProfile";
-import NotificationsPage from "@/pages/Notifications/NotificationsPage";
-import FeedbackPage from "@/pages/Feedback/FeedbackPage";
+import LandingPage from "../pages/Home/LandingPage";
+import Dashboard from "../pages/Home/Dashboard";
+import AlumniList from "../pages/Alumni/AlumniList";
+import AllPosts from "../pages/Posts/AllPosts";
+import SinglePost from "../pages/Posts/SinglePost";
+import Profile from "../pages/User/Profile";
+import UserProfile from "../pages/User/UserProfile";
+import EditProfile from "../pages/User/EditProfile";
+import NotificationsPage from "../pages/Notifications/NotificationsPage";
+import FeedbackPage from "../pages/Feedback/FeedbackPage";
 
 function AppRoutes({ darkMode, toggleDarkMode }) {
   return (

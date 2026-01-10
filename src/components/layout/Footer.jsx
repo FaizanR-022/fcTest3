@@ -1,5 +1,5 @@
 import { GraduationCap, Github, Linkedin, Instagram } from "lucide-react";
-import { SOCIAL_LINKS } from "@/constants/constants";
+import { SOCIAL_LINKS } from "../../constants/constants";
 
 export default function Footer() {
   return (

@@ -1,18 +1,18 @@
 import { Save, Loader2 } from "lucide-react";
 import { Controller } from "react-hook-form";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import ImageUpload from "@/components/common/ImageUpload";
-import { PageContainer, PageContent, BackButton, LoadingSpinner } from "@/components/layout";
-import EditProfileHeader from "@/components/profile/EditProfileHeader";
-import AlertMessages from "@/components/profile/AlertMessages";
-import ReadOnlyInfo from "@/components/profile/ReadOnlyInfo";
-import StudentPersonalInfoSection from "@/components/profile/student/StudentPersonalInfoSection";
+import { Card, CardContent } from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import { Separator } from "../../components/ui/separator";
+import ImageUpload from "../../components/common/ImageUpload";
+import { PageContainer, PageContent, BackButton, LoadingSpinner } from "../../components/layout";
+import EditProfileHeader from "../../components/profile/EditProfileHeader";
+import AlertMessages from "../../components/profile/AlertMessages";
+import ReadOnlyInfo from "../../components/profile/ReadOnlyInfo";
+import StudentPersonalInfoSection from "../../components/profile/student/StudentPersonalInfoSection";
 
-import { useStudentProfile } from "@/hooks/useStudentProfile";
-import useAuthStore from "@/store/authStore";
+import { useStudentProfile } from "../../hooks/useStudentProfile";
+import useAuthStore from "../../store/authStore";
 
 export default function StudentProfile() {
   const { user } = useAuthStore();

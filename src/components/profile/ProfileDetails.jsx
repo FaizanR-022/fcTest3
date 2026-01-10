@@ -9,9 +9,9 @@ import {
   Linkedin,
   Award,
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent } from "../ui/card";
+import { Badge } from "../ui/badge";
+import { Separator } from "../ui/separator";
 
 export const ProfileDetails = ({ user, isOwnProfile }) => {
   if (!user) return null;
