@@ -59,7 +59,7 @@ export default function SinglePost() {
       navigate(ROUTES.ALL_POSTS);
       toast.success("Post deleted successfully!");
     } catch (err) {
-      console.error("Delete failed:", err);
+      console.error("Delete failed");
     } finally {
       setDeleting(false);
       setDeleteDialogOpen(false);

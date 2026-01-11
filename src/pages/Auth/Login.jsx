@@ -231,7 +231,7 @@ export default function Login() {
 
               <div className="pt-8 border-t">
                 <p className="text-sm text-muted-foreground">
-                  Built with ❤️ by FAST-NUCES Students
+                  Developed by a Fastian for Fastians.
                 </p>
               </div>
             </div>

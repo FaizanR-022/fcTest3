@@ -4,7 +4,13 @@ import { UserPlus, Plus, Trash2, Eye, EyeOff } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
@@ -66,6 +72,7 @@ export default function SignupAlumni() {
       previousCompanies: [],
       city: "",
       country: "",
+      linkedin: "",
       password: "",
       confirmPassword: "",
       profilePicture: "",
@@ -79,7 +86,6 @@ export default function SignupAlumni() {
 
   const onSubmit = async (data) => {
     clearError();
-    console.log(data);
     const result = await signupAlumni(data);
     if (result.success) {
       reset();
@@ -128,7 +134,9 @@ export default function SignupAlumni() {
                   )}
                 />
                 {errors.firstName && (
-                  <p className="text-xs text-destructive">{errors.firstName.message}</p>
+                  <p className="text-xs text-destructive">
+                    {errors.firstName.message}
+                  </p>
                 )}
               </div>
 
@@ -147,7 +155,9 @@ export default function SignupAlumni() {
                   )}
                 />
                 {errors.lastName && (
-                  <p className="text-xs text-destructive">{errors.lastName.message}</p>
+                  <p className="text-xs text-destructive">
+                    {errors.lastName.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -169,7 +179,9 @@ export default function SignupAlumni() {
                 )}
               />
               {errors.email && (
-                <p className="text-xs text-destructive">{errors.email.message}</p>
+                <p className="text-xs text-destructive">
+                  {errors.email.message}
+                </p>
               )}
             </div>
 
@@ -188,8 +200,13 @@ export default function SignupAlumni() {
                   />
                 )}
               />
+              <p className="text-xs text-muted-foreground">
+                useful for students to ask for guidance.
+              </p>
               {errors.phone && (
-                <p className="text-xs text-destructive">{errors.phone.message}</p>
+                <p className="text-xs text-destructive">
+                  {errors.phone.message}
+                </p>
               )}
             </div>
 
@@ -201,7 +218,9 @@ export default function SignupAlumni() {
                 control={control}
                 render={({ field }) => (
                   <Select onValueChange={field.onChange} value={field.value}>
-                    <SelectTrigger className={errors.campus ? "border-destructive" : ""}>
+                    <SelectTrigger
+                      className={errors.campus ? "border-destructive" : ""}
+                    >
                       <SelectValue placeholder="Select campus" />
                     </SelectTrigger>
                     <SelectContent>
@@ -215,7 +234,9 @@ export default function SignupAlumni() {
                 )}
               />
               {errors.campus && (
-                <p className="text-xs text-destructive">{errors.campus.message}</p>
+                <p className="text-xs text-destructive">
+                  {errors.campus.message}
+                </p>
               )}
             </div>
 
@@ -228,7 +249,11 @@ export default function SignupAlumni() {
                   control={control}
                   render={({ field }) => (
                     <Select onValueChange={field.onChange} value={field.value}>
-                      <SelectTrigger className={errors.department ? "border-destructive" : ""}>
+                      <SelectTrigger
+                        className={
+                          errors.department ? "border-destructive" : ""
+                        }
+                      >
                         <SelectValue placeholder="Select department" />
                       </SelectTrigger>
                       <SelectContent>
@@ -242,7 +267,9 @@ export default function SignupAlumni() {
                   )}
                 />
                 {errors.department && (
-                  <p className="text-xs text-destructive">{errors.department.message}</p>
+                  <p className="text-xs text-destructive">
+                    {errors.department.message}
+                  </p>
                 )}
               </div>
 
@@ -253,7 +280,11 @@ export default function SignupAlumni() {
                   control={control}
                   render={({ field }) => (
                     <Select onValueChange={field.onChange} value={field.value}>
-                      <SelectTrigger className={errors.graduationYear ? "border-destructive" : ""}>
+                      <SelectTrigger
+                        className={
+                          errors.graduationYear ? "border-destructive" : ""
+                        }
+                      >
                         <SelectValue placeholder="Select year" />
                       </SelectTrigger>
                       <SelectContent>
@@ -267,7 +298,9 @@ export default function SignupAlumni() {
                   )}
                 />
                 {errors.graduationYear && (
-                  <p className="text-xs text-destructive">{errors.graduationYear.message}</p>
+                  <p className="text-xs text-destructive">
+                    {errors.graduationYear.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -284,12 +317,16 @@ export default function SignupAlumni() {
                       {...field}
                       id="currentCompany"
                       placeholder="e.g., Google"
-                      className={errors.currentCompany ? "border-destructive" : ""}
+                      className={
+                        errors.currentCompany ? "border-destructive" : ""
+                      }
                     />
                   )}
                 />
                 {errors.currentCompany && (
-                  <p className="text-xs text-destructive">{errors.currentCompany.message}</p>
+                  <p className="text-xs text-destructive">
+                    {errors.currentCompany.message}
+                  </p>
                 )}
               </div>
 
@@ -303,12 +340,16 @@ export default function SignupAlumni() {
                       {...field}
                       id="currentPosition"
                       placeholder="e.g., Software Engineer"
-                      className={errors.currentPosition ? "border-destructive" : ""}
+                      className={
+                        errors.currentPosition ? "border-destructive" : ""
+                      }
                     />
                   )}
                 />
                 {errors.currentPosition && (
-                  <p className="text-xs text-destructive">{errors.currentPosition.message}</p>
+                  <p className="text-xs text-destructive">
+                    {errors.currentPosition.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -330,7 +371,9 @@ export default function SignupAlumni() {
                   )}
                 />
                 {errors.city && (
-                  <p className="text-xs text-destructive">{errors.city.message}</p>
+                  <p className="text-xs text-destructive">
+                    {errors.city.message}
+                  </p>
                 )}
               </div>
 
@@ -349,15 +392,41 @@ export default function SignupAlumni() {
                   )}
                 />
                 {errors.country && (
-                  <p className="text-xs text-destructive">{errors.country.message}</p>
+                  <p className="text-xs text-destructive">
+                    {errors.country.message}
+                  </p>
                 )}
               </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="linkedin">LinkedIn Profile URL</Label>
+              <Controller
+                name="linkedin"
+                control={control}
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    id="linkedin"
+                    type="url"
+                    placeholder="https://www.linkedin.com/in/your-profile"
+                    className={errors.linkedin ? "border-destructive" : ""}
+                  />
+                )}
+              />
+              {errors.linkedin && (
+                <p className="text-xs text-destructive">
+                  {errors.linkedin.message}
+                </p>
+              )}
             </div>
 
             {/* Previous Companies Section */}
             <div>
               <div className="flex items-center justify-between mb-3">
-                <Label className="text-sm font-semibold">Previous Companies (Optional)</Label>
+                <Label className="text-sm font-semibold">
+                  Previous Companies (Optional)
+                </Label>
                 <Button
                   type="button"
                   variant="ghost"
@@ -393,7 +462,11 @@ export default function SignupAlumni() {
                           <Input
                             {...field}
                             placeholder="Company name"
-                            className={errors.previousCompanies?.[index]?.company ? "border-destructive" : ""}
+                            className={
+                              errors.previousCompanies?.[index]?.company
+                                ? "border-destructive"
+                                : ""
+                            }
                           />
                         )}
                       />
@@ -413,7 +486,11 @@ export default function SignupAlumni() {
                           <Input
                             {...field}
                             placeholder="Your role"
-                            className={errors.previousCompanies?.[index]?.role ? "border-destructive" : ""}
+                            className={
+                              errors.previousCompanies?.[index]?.role
+                                ? "border-destructive"
+                                : ""
+                            }
                           />
                         )}
                       />
@@ -431,8 +508,17 @@ export default function SignupAlumni() {
                           name={`previousCompanies.${index}.from`}
                           control={control}
                           render={({ field }) => (
-                            <Select onValueChange={field.onChange} value={field.value}>
-                              <SelectTrigger className={errors.previousCompanies?.[index]?.from ? "border-destructive" : ""}>
+                            <Select
+                              onValueChange={field.onChange}
+                              value={field.value}
+                            >
+                              <SelectTrigger
+                                className={
+                                  errors.previousCompanies?.[index]?.from
+                                    ? "border-destructive"
+                                    : ""
+                                }
+                              >
                                 <SelectValue placeholder="Year" />
                               </SelectTrigger>
                               <SelectContent>
@@ -458,8 +544,17 @@ export default function SignupAlumni() {
                           name={`previousCompanies.${index}.to`}
                           control={control}
                           render={({ field }) => (
-                            <Select onValueChange={field.onChange} value={field.value}>
-                              <SelectTrigger className={errors.previousCompanies?.[index]?.to ? "border-destructive" : ""}>
+                            <Select
+                              onValueChange={field.onChange}
+                              value={field.value}
+                            >
+                              <SelectTrigger
+                                className={
+                                  errors.previousCompanies?.[index]?.to
+                                    ? "border-destructive"
+                                    : ""
+                                }
+                              >
                                 <SelectValue placeholder="Year" />
                               </SelectTrigger>
                               <SelectContent>
@@ -511,7 +606,9 @@ export default function SignupAlumni() {
                       {...field}
                       id="password"
                       type={showPassword ? "text" : "password"}
-                      className={errors.password ? "border-destructive pr-10" : "pr-10"}
+                      className={
+                        errors.password ? "border-destructive pr-10" : "pr-10"
+                      }
                     />
                   )}
                 />
@@ -520,11 +617,17 @@ export default function SignupAlumni() {
                   onClick={handleShowPassword}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                 >
-                  {showPassword ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                  {showPassword ? (
+                    <Eye className="w-4 h-4" />
+                  ) : (
+                    <EyeOff className="w-4 h-4" />
+                  )}
                 </button>
               </div>
               {errors.password && (
-                <p className="text-xs text-destructive">{errors.password.message}</p>
+                <p className="text-xs text-destructive">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 
@@ -540,7 +643,11 @@ export default function SignupAlumni() {
                       {...field}
                       id="confirmPassword"
                       type={showConfirmPassword ? "text" : "password"}
-                      className={errors.confirmPassword ? "border-destructive pr-10" : "pr-10"}
+                      className={
+                        errors.confirmPassword
+                          ? "border-destructive pr-10"
+                          : "pr-10"
+                      }
                     />
                   )}
                 />
@@ -549,11 +656,17 @@ export default function SignupAlumni() {
                   onClick={handleShowConfirmPassword}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                 >
-                  {showConfirmPassword ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                  {showConfirmPassword ? (
+                    <Eye className="w-4 h-4" />
+                  ) : (
+                    <EyeOff className="w-4 h-4" />
+                  )}
                 </button>
               </div>
               {errors.confirmPassword && (
-                <p className="text-xs text-destructive">{errors.confirmPassword.message}</p>
+                <p className="text-xs text-destructive">
+                  {errors.confirmPassword.message}
+                </p>
               )}
             </div>
 

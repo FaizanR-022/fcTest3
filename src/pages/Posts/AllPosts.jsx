@@ -57,7 +57,7 @@ export default function AllPosts() {
       setPostToDelete(null);
       toast.success("Post deleted successfully!");
     } catch (err) {
-      console.error("Delete failed:", err);
+      console.error("Delete failed");
     } finally {
       setDeleting(false);
     }

@@ -103,7 +103,8 @@ export default function Header({ darkMode, toggleDarkMode }) {
             {isAuthenticated && user ? (
               <>
                 {/* Notifications - Only for Alumni */}
-                {user.role === "alumni" && <BellIcon />}
+                {/* {user.role === "alumni" && <BellIcon />} */}
+                <BellIcon />
 
                 {/* Profile Dropdown */}
                 <DropdownMenu>
@@ -131,11 +132,11 @@ export default function Header({ darkMode, toggleDarkMode }) {
                       </Badge>
                     </div>
                     <DropdownMenuItem onClick={() => navigate(ROUTES.PROFILE)}>
-                      <User className="w-4 h-4 mr-2" />
+                      <User className="w-4 h-4 mr-2 cursor-pointer" />
                       View Profile
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => navigate(ROUTES.PROFILE)}>
-                      <User className="w-4 h-4 mr-2" />
+                      <User className="w-4 h-4 mr-2 cursor-pointer" />
                       Edit Profile
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
@@ -143,7 +144,7 @@ export default function Header({ darkMode, toggleDarkMode }) {
                       onClick={handleLogout}
                       className="text-destructive focus:text-destructive"
                     >
-                      <LogOut className="w-4 h-4 mr-2" />
+                      <LogOut className="w-4 h-4 mr-2 cursor-pointer" />
                       Logout
                     </DropdownMenuItem>
                   </DropdownMenuContent>

@@ -51,7 +51,6 @@ function ImageUpload({ value, onChange, label = "Profile Picture" }) {
       // Update parent with Cloudinary URL
       onChange(response.data.data.url);
     } catch (err) {
-      console.error("Upload error:", err);
       setError(err.response?.data?.message || "Failed to upload image");
       setPreview(value || null); // Revert to original on error
     } finally {
@@ -76,13 +75,13 @@ function ImageUpload({ value, onChange, label = "Profile Picture" }) {
             <AvatarImage src={preview} />
             <AvatarFallback className="text-lg">?</AvatarFallback>
           </Avatar>
-          
+
           {uploading && (
             <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-full">
               <Loader2 className="w-8 h-8 text-white animate-spin" />
             </div>
           )}
-          
+
           {preview && !uploading && (
             <button
               type="button"
@@ -120,9 +119,7 @@ function ImageUpload({ value, onChange, label = "Profile Picture" }) {
             </label>
           </Button>
 
-          {error && (
-            <p className="text-xs text-destructive mt-1">{error}</p>
-          )}
+          {error && <p className="text-xs text-destructive mt-1">{error}</p>}
 
           {!error && (
             <p className="text-xs text-muted-foreground mt-1">

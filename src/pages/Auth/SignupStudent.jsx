@@ -4,7 +4,13 @@ import { Eye, EyeOff, UserPlus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
@@ -16,7 +22,11 @@ import {
   SelectValue,
 } from "../../components/ui/select";
 
-import { DEPARTMENTS, BATCH_YEARS, CAMPUSES } from "../../constants/authConstants";
+import {
+  DEPARTMENTS,
+  BATCH_YEARS,
+  CAMPUSES,
+} from "../../constants/authConstants";
 import { studentSignupSchema } from "../../utils/validationSchemas";
 import { ROUTES } from "../../constants/constants";
 import useAuthStore from "../../store/authStore";
@@ -62,7 +72,6 @@ export default function SignupStudent() {
 
   const onSubmit = async (data) => {
     clearError();
-    console.log(data);
     const result = await signupStudent(data);
     if (result.success) {
       reset();
@@ -107,7 +116,9 @@ export default function SignupStudent() {
                   )}
                 />
                 {errors.firstName && (
-                  <p className="text-xs text-destructive">{errors.firstName.message}</p>
+                  <p className="text-xs text-destructive">
+                    {errors.firstName.message}
+                  </p>
                 )}
               </div>
 
@@ -126,7 +137,9 @@ export default function SignupStudent() {
                   )}
                 />
                 {errors.lastName && (
-                  <p className="text-xs text-destructive">{errors.lastName.message}</p>
+                  <p className="text-xs text-destructive">
+                    {errors.lastName.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -148,9 +161,13 @@ export default function SignupStudent() {
                 )}
               />
               {errors.email ? (
-                <p className="text-xs text-destructive">{errors.email.message}</p>
+                <p className="text-xs text-destructive">
+                  {errors.email.message}
+                </p>
               ) : (
-                <p className="text-xs text-muted-foreground">Must be a valid @nu.edu.pk email</p>
+                <p className="text-xs text-muted-foreground">
+                  Must be a valid @nu.edu.pk email
+                </p>
               )}
             </div>
 
@@ -162,7 +179,9 @@ export default function SignupStudent() {
                 control={control}
                 render={({ field }) => (
                   <Select onValueChange={field.onChange} value={field.value}>
-                    <SelectTrigger className={errors.campus ? "border-destructive" : ""}>
+                    <SelectTrigger
+                      className={errors.campus ? "border-destructive" : ""}
+                    >
                       <SelectValue placeholder="Select campus" />
                     </SelectTrigger>
                     <SelectContent>
@@ -176,7 +195,9 @@ export default function SignupStudent() {
                 )}
               />
               {errors.campus && (
-                <p className="text-xs text-destructive">{errors.campus.message}</p>
+                <p className="text-xs text-destructive">
+                  {errors.campus.message}
+                </p>
               )}
             </div>
 
@@ -189,7 +210,11 @@ export default function SignupStudent() {
                   control={control}
                   render={({ field }) => (
                     <Select onValueChange={field.onChange} value={field.value}>
-                      <SelectTrigger className={errors.department ? "border-destructive" : ""}>
+                      <SelectTrigger
+                        className={
+                          errors.department ? "border-destructive" : ""
+                        }
+                      >
                         <SelectValue placeholder="Select department" />
                       </SelectTrigger>
                       <SelectContent>
@@ -203,7 +228,9 @@ export default function SignupStudent() {
                   )}
                 />
                 {errors.department && (
-                  <p className="text-xs text-destructive">{errors.department.message}</p>
+                  <p className="text-xs text-destructive">
+                    {errors.department.message}
+                  </p>
                 )}
               </div>
 
@@ -214,7 +241,9 @@ export default function SignupStudent() {
                   control={control}
                   render={({ field }) => (
                     <Select onValueChange={field.onChange} value={field.value}>
-                      <SelectTrigger className={errors.batch ? "border-destructive" : ""}>
+                      <SelectTrigger
+                        className={errors.batch ? "border-destructive" : ""}
+                      >
                         <SelectValue placeholder="Select batch" />
                       </SelectTrigger>
                       <SelectContent>
@@ -228,7 +257,9 @@ export default function SignupStudent() {
                   )}
                 />
                 {errors.batch && (
-                  <p className="text-xs text-destructive">{errors.batch.message}</p>
+                  <p className="text-xs text-destructive">
+                    {errors.batch.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -258,7 +289,9 @@ export default function SignupStudent() {
                       {...field}
                       id="password"
                       type={showPassword ? "text" : "password"}
-                      className={errors.password ? "border-destructive pr-10" : "pr-10"}
+                      className={
+                        errors.password ? "border-destructive pr-10" : "pr-10"
+                      }
                     />
                   )}
                 />
@@ -267,11 +300,17 @@ export default function SignupStudent() {
                   onClick={handleShowPassword}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                 >
-                  {showPassword ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                  {showPassword ? (
+                    <Eye className="w-4 h-4" />
+                  ) : (
+                    <EyeOff className="w-4 h-4" />
+                  )}
                 </button>
               </div>
               {errors.password && (
-                <p className="text-xs text-destructive">{errors.password.message}</p>
+                <p className="text-xs text-destructive">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 
@@ -287,7 +326,11 @@ export default function SignupStudent() {
                       {...field}
                       id="confirmPassword"
                       type={showConfirmPassword ? "text" : "password"}
-                      className={errors.confirmPassword ? "border-destructive pr-10" : "pr-10"}
+                      className={
+                        errors.confirmPassword
+                          ? "border-destructive pr-10"
+                          : "pr-10"
+                      }
                     />
                   )}
                 />
@@ -296,11 +339,17 @@ export default function SignupStudent() {
                   onClick={handleShowConfirmPassword}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                 >
-                  {showConfirmPassword ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                  {showConfirmPassword ? (
+                    <Eye className="w-4 h-4" />
+                  ) : (
+                    <EyeOff className="w-4 h-4" />
+                  )}
                 </button>
               </div>
               {errors.confirmPassword && (
-                <p className="text-xs text-destructive">{errors.confirmPassword.message}</p>
+                <p className="text-xs text-destructive">
+                  {errors.confirmPassword.message}
+                </p>
               )}
             </div>
 

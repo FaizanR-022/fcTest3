@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Heart, MessageCircle, Trash2 } from "lucide-react";
+import { Heart, MessageCircle, Trash2, Link2 } from "lucide-react";
+import { toast } from "sonner";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { formatDistanceToNow } from "../../utils/dateHelpers";
-import { formatAlumniInfo, extractRollNumber, getInitials } from "../../utils/userInfoHelpers";
+import {
+  formatAlumniInfo,
+  extractRollNumber,
+  getInitials,
+} from "../../utils/userInfoHelpers";
 import { ROUTES } from "../../constants/constants";
 
 export default function PostCard({
@@ -43,6 +48,23 @@ export default function PostCard({
     }
   };
 
+  const handleCopyLink = async (e) => {
+    e.stopPropagation();
+
+    const postUrl = `${window.location.origin}${ROUTES.SINGLE_POST.replace(
+      ":id",
+      post.id
+    )}`;
+
+    try {
+      await navigator.clipboard.writeText(postUrl);
+      toast.success("Link copied to clipboard!");
+    } catch (err) {
+      console.error("Failed to copy link:", err);
+      toast.error("Failed to copy link");
+    }
+  };
+
   const toggleExpand = (e) => {
     e.stopPropagation();
     setIsExpanded(!isExpanded);
@@ -76,8 +98,18 @@ export default function PostCard({
       className="cursor-pointer hover:border-primary/50 transition-colors"
       onClick={handlePostClick}
     >
-      <CardHeader className="pb-3">
-        <div className="flex items-start gap-3">
+      <CardHeader className="pb-3 relative">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="absolute top-4 right-4 h-8 w-8 p-0"
+          onClick={handleCopyLink}
+          title="Copy link"
+        >
+          <Link2 className="w-4 h-4" />
+        </Button>
+
+        <div className="flex items-start gap-3 pr-10">
           <Avatar
             className="w-10 h-10 cursor-pointer"
             onClick={handleAuthorClick}
@@ -97,7 +129,9 @@ export default function PostCard({
                 {post.author.firstName} {post.author.lastName}
               </span>
               <Badge
-                variant={post.author.role === "student" ? "default" : "secondary"}
+                variant={
+                  post.author.role === "student" ? "default" : "secondary"
+                }
                 className="text-xs"
               >
                 {post.author.role === "student" ? "Student" : "Alumni"}
@@ -156,7 +190,8 @@ export default function PostCard({
             >
               <MessageCircle className="w-4 h-4" />
               <span>
-                {post.repliesCount} {post.repliesCount === 1 ? "reply" : "replies"}
+                {post.repliesCount}{" "}
+                {post.repliesCount === 1 ? "reply" : "replies"}
               </span>
             </Button>
           </div>

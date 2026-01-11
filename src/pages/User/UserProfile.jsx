@@ -12,8 +12,17 @@ import {
 } from "lucide-react";
 
 import { Button } from "../../components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../../components/ui/card";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "../../components/ui/avatar";
 import { Badge } from "../../components/ui/badge";
 import { ConfirmDialog } from "../../components/common/ConfirmDialog";
 import {
@@ -32,6 +41,7 @@ import { usePosts } from "../../hooks/usePosts";
 import useAuthStore from "../../store/authStore";
 import { ROUTES } from "../../constants/constants";
 import { formatDistanceToNow } from "../../utils/dateHelpers";
+import { formatStudentInfo } from "../../utils/userInfoHelpers";
 
 export default function UserProfile() {
   const { userId } = useParams();
@@ -69,7 +79,7 @@ export default function UserProfile() {
       setDeleteDialogOpen(false);
       setPostToDelete(null);
     } catch (err) {
-      console.error("Delete failed:", err);
+      console.error("Delete failed");
     } finally {
       setDeleting(false);
     }
@@ -161,9 +171,14 @@ export default function UserProfile() {
                       {user.firstName} {user.lastName}
                     </h1>
                     {user.role === "alumni" && user.currentPosition && (
-                      <p className="text-xl text-muted-foreground mb-2">
+                      <p className="text-l text-primary font-medium mb-2">
                         {user.currentPosition}
                         {user.currentCompany && ` at ${user.currentCompany}`}
+                      </p>
+                    )}
+                    {user.role === "student" && user.email && (
+                      <p className="text-l text-primary font-medium mb-2">
+                        {formatStudentInfo(user.email)}
                       </p>
                     )}
                     <div className="flex items-center gap-2 mb-2">

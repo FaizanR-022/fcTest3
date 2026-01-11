@@ -85,7 +85,7 @@ export default function Dashboard() {
       setDeleteDialogOpen(false);
       setPostToDelete(null);
     } catch (err) {
-      console.error("Delete failed:", err);
+      console.error("Delete failed");
     } finally {
       setDeleting(false);
     }

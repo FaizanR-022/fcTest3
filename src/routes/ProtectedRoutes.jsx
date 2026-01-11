@@ -22,7 +22,7 @@ const ProtectedRoute = ({ children }) => {
       return <Navigate to={`/login?returnUrl=${returnUrl}`} replace />;
     }
   } catch (error) {
-    console.error("Invalid token:", error);
+    console.error("Invalid token");
     logout();
     return <Navigate to="/login" replace />;
   }
