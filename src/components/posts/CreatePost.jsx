@@ -2,18 +2,14 @@ import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "../ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Label } from "../ui/label";
 
 import { createPostSchema } from "../../utils/postValidationSchemas";
+import { toast } from "sonner";
 
 export const CreatePost = ({ open, onClose, onSubmit, loading }) => {
   const [error, setError] = useState("");
@@ -43,6 +39,7 @@ export const CreatePost = ({ open, onClose, onSubmit, loading }) => {
       await onSubmit(data);
       reset();
       handleClose();
+      toast.success("Post created successfully!");
     } catch (err) {
       setError(err.message || "Failed to create post");
     }
@@ -52,9 +49,12 @@ export const CreatePost = ({ open, onClose, onSubmit, loading }) => {
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-medium">Ask a Question</DialogTitle>
+          <DialogTitle className="text-2xl font-medium">
+            Ask a Question
+          </DialogTitle>
           <p className="text-sm text-muted-foreground">
-            Share your question with the community and get expert advice from alumni
+            Share your question with the community and get expert advice from
+            alumni
           </p>
         </DialogHeader>
 
@@ -64,7 +64,10 @@ export const CreatePost = ({ open, onClose, onSubmit, loading }) => {
           </div>
         )}
 
-        <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-4 pt-4">
+        <form
+          onSubmit={handleSubmit(handleFormSubmit)}
+          className="space-y-4 pt-4"
+        >
           <div className="space-y-2">
             <Label htmlFor="title">Question Title</Label>
             <Controller
@@ -95,7 +98,9 @@ export const CreatePost = ({ open, onClose, onSubmit, loading }) => {
                   id="body"
                   rows={6}
                   placeholder="Provide more context about your question..."
-                  className={`resize-none ${errors.body ? "border-destructive" : ""}`}
+                  className={`resize-none ${
+                    errors.body ? "border-destructive" : ""
+                  }`}
                 />
               )}
             />

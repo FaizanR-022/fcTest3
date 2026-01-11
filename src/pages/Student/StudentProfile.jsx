@@ -5,7 +5,12 @@ import { Card, CardContent } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 import { Separator } from "../../components/ui/separator";
 import ImageUpload from "../../components/common/ImageUpload";
-import { PageContainer, PageContent, BackButton, LoadingSpinner } from "../../components/layout";
+import {
+  PageContainer,
+  PageContent,
+  BackButton,
+  LoadingSpinner,
+} from "../../components/layout";
 import EditProfileHeader from "../../components/profile/EditProfileHeader";
 import AlertMessages from "../../components/profile/AlertMessages";
 import ReadOnlyInfo from "../../components/profile/ReadOnlyInfo";
@@ -34,8 +39,8 @@ export default function StudentProfile() {
   }
 
   return (
-    <PageContainer className="bg-gradient-to-br from-background via-muted/30 to-background">
-      <PageContent maxWidth="3xl">
+    <PageContainer>
+      <PageContent maxWidth="2xl">
         <BackButton />
 
         <Card>

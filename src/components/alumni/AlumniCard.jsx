@@ -16,14 +16,17 @@ export default function AlumniCard({ alumni, onClick }) {
 
   return (
     <Card
-      className="cursor-pointer hover:border-primary/50 hover:shadow-md transition-all group"
+      className="cursor-pointer hover:border-primary/50 hover:shadow-md transition-all group h-full flex flex-col"
       onClick={() => onClick(alumni)}
     >
-      <CardContent className="p-4 md:p-6">
+      <CardContent className="p-4 md:p-6 flex flex-col flex-1">
         {/* Header Section */}
         <div className="flex items-start gap-3 mb-4">
           <Avatar className="w-12 h-12">
-            <AvatarImage src={alumni?.profilePicture} />
+            {/* <AvatarImage src={alumni?.profilePicture} /> */}
+            {alumni.profilePicture && (
+              <AvatarImage src={alumni.profilePicture} />
+            )}
             <AvatarFallback className="bg-primary text-primary-foreground">
               {alumni.avatar}
             </AvatarFallback>
@@ -37,7 +40,7 @@ export default function AlumniCard({ alumni, onClick }) {
         </div>
 
         {/* Info Section */}
-        <div className="space-y-2 mb-4">
+        <div className="space-y-2 mb-4 flex-1">
           {/* Current Position & Company */}
           <div className="flex items-start gap-2">
             <Briefcase className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -96,8 +99,8 @@ export default function AlumniCard({ alumni, onClick }) {
           </div>
         </div>
 
-        {/* View Profile Button - shows on hover */}
-        <div className="pt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+        {/* View Profile Button - Always at bottom, shows on hover */}
+        <div className="pt-2 mt-auto opacity-0 group-hover:opacity-100 transition-opacity">
           <Button size="sm" variant="outline" className="w-full">
             View Profile
           </Button>

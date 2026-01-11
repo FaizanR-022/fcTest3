@@ -11,6 +11,7 @@ import { PageContainer, PageHeader } from "../../components/layout";
 import { usePosts } from "../../hooks/usePosts";
 import useAuthStore from "../../store/authStore";
 import { ROUTES } from "../../constants/constants";
+import { toast } from "sonner";
 
 export default function AllPosts() {
   const navigate = useNavigate();
@@ -54,6 +55,7 @@ export default function AllPosts() {
       await deletePost(postToDelete);
       setDeleteDialogOpen(false);
       setPostToDelete(null);
+      toast.success("Post deleted successfully!");
     } catch (err) {
       console.error("Delete failed:", err);
     } finally {
@@ -75,15 +77,18 @@ export default function AllPosts() {
   };
 
   return (
-    <PageContainer>
+    <PageContainer childrenClassName="max-w-5xl">
       {/* Page Header with Action Button */}
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
-        <PageHeader 
+        <PageHeader
           title="Q&A Forum"
           subtitle="Ask questions, share knowledge, and connect with the community"
-          className="mb-0"
+          className="mb-0 py-8"
         />
-        <Button onClick={() => setCreateModalOpen(true)} className="gap-2 shrink-0">
+        <Button
+          onClick={() => setCreateModalOpen(true)}
+          className="gap-2 shrink-0 my-10"
+        >
           <Plus className="w-4 h-4" />
           Ask a Question
         </Button>

@@ -29,6 +29,7 @@ import useAuthStore from "../../store/authStore";
 import useNotificationStore from "../../store/useNotificationStore";
 import { getInitials } from "../../utils/userInfoHelpers";
 import BellIcon from "../notifications/BellIcon";
+import { ROUTES } from "../../constants/constants";
 
 export default function Header({ darkMode, toggleDarkMode }) {
   const navigate = useNavigate();
@@ -129,11 +130,11 @@ export default function Header({ darkMode, toggleDarkMode }) {
                         {user.role === "student" ? "Student" : "Alumni"}
                       </Badge>
                     </div>
-                    <DropdownMenuItem onClick={() => navigate("/profile")}>
+                    <DropdownMenuItem onClick={() => navigate(ROUTES.PROFILE)}>
                       <User className="w-4 h-4 mr-2" />
                       View Profile
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => navigate("/profile/edit")}>
+                    <DropdownMenuItem onClick={() => navigate(ROUTES.PROFILE)}>
                       <User className="w-4 h-4 mr-2" />
                       Edit Profile
                     </DropdownMenuItem>
@@ -165,10 +166,12 @@ export default function Header({ darkMode, toggleDarkMode }) {
             ) : (
               /* Unauthenticated Actions */
               <div className="flex items-center gap-2">
-                <Button variant="ghost" onClick={() => navigate("/login")}>
+                <Button variant="ghost" onClick={() => navigate(ROUTES.LOGIN)}>
                   Login
                 </Button>
-                <Button onClick={() => navigate("/signup")}>Sign Up</Button>
+                <Button onClick={() => navigate(ROUTES.SIGNUP_CHOICE)}>
+                  Sign Up
+                </Button>
               </div>
             )}
           </div>
@@ -179,7 +182,11 @@ export default function Header({ darkMode, toggleDarkMode }) {
           <div className="md:hidden py-4 border-t">
             <nav className="flex flex-col gap-2">
               {navLinks.map(({ path, label, icon: Icon }) => (
-                <Link key={path} to={path} onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  key={path}
+                  to={path}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   <Button
                     variant={isActive(path) ? "default" : "ghost"}
                     className="w-full justify-start gap-2"

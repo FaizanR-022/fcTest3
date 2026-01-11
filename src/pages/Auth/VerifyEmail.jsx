@@ -9,6 +9,7 @@ import { Input } from "../../components/ui/input";
 import useAuthStore from "../../store/authStore";
 import { useAuth } from "../../hooks/useAuth";
 import { ROUTES } from "../../constants/constants";
+import { toast } from "sonner";
 
 export default function VerifyEmail() {
   const navigate = useNavigate();
@@ -74,6 +75,7 @@ export default function VerifyEmail() {
 
     if (result.success) {
       setSuccess(true);
+      toast.success("Email verified successfully!");
 
       setTimeout(() => {
         navigate(ROUTES.HOME);
@@ -128,7 +130,9 @@ export default function VerifyEmail() {
 
           {/* Title */}
           <h1 className="text-2xl font-bold mb-2">Verify Your Email</h1>
-          <p className="text-muted-foreground mb-1">We sent a 6-digit code to</p>
+          <p className="text-muted-foreground mb-1">
+            We sent a 6-digit code to
+          </p>
           <p className="text-primary font-semibold mb-6">{user.email}</p>
 
           {/* Success Message */}

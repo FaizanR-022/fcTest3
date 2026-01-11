@@ -7,6 +7,7 @@ import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 
 import { createReplySchema } from "../../utils/postValidationSchemas";
+import { toast } from "sonner";
 
 export const CreateReply = ({ currentUser, onSubmit, loading }) => {
   const [error, setError] = useState("");
@@ -30,6 +31,7 @@ export const CreateReply = ({ currentUser, onSubmit, loading }) => {
       setError("");
       await onSubmit(data);
       reset();
+      toast.success("Reply posted successfully!");
     } catch (err) {
       setError(err.message || "Failed to post reply");
     }
@@ -66,7 +68,9 @@ export const CreateReply = ({ currentUser, onSubmit, loading }) => {
                 id="reply-body"
                 rows={4}
                 placeholder="Share your insights and help answer this question..."
-                className={`resize-none ${errors.body ? "border-destructive" : ""}`}
+                className={`resize-none ${
+                  errors.body ? "border-destructive" : ""
+                }`}
               />
             )}
           />

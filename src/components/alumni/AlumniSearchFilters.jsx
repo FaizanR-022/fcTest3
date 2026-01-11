@@ -59,7 +59,12 @@ export const AlumniSearchFilters = ({
                 className="pl-10"
               />
             </div>
-            <Select value={searchAttribute} onValueChange={(val) => onSearchAttributeChange({ target: { value: val } })}>
+            <Select
+              value={searchAttribute}
+              onValueChange={(val) =>
+                onSearchAttributeChange({ target: { value: val } })
+              }
+            >
               <SelectTrigger className="w-32">
                 <SelectValue />
               </SelectTrigger>
@@ -78,7 +83,12 @@ export const AlumniSearchFilters = ({
         <div className="flex flex-col sm:flex-row gap-4">
           {/* Department Filter */}
           <div className="flex-1">
-            <Select value={departmentFilter} onValueChange={(val) => onDepartmentChange({ target: { value: val } })}>
+            <Select
+              value={departmentFilter}
+              onValueChange={(val) =>
+                onDepartmentChange({ target: { value: val } })
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="All Departments" />
               </SelectTrigger>
@@ -95,7 +105,12 @@ export const AlumniSearchFilters = ({
 
           {/* Campus Filter */}
           <div className="flex-1">
-            <Select value={campusFilter} onValueChange={(val) => onCampusChange({ target: { value: val } })}>
+            <Select
+              value={campusFilter}
+              onValueChange={(val) =>
+                onCampusChange({ target: { value: val } })
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="All Campuses" />
               </SelectTrigger>
@@ -112,12 +127,15 @@ export const AlumniSearchFilters = ({
 
           {/* Year Filter */}
           <div className="flex-1">
-            <Select value={yearFilter} onValueChange={(val) => onYearChange({ target: { value: val } })}>
+            <Select
+              value={yearFilter}
+              onValueChange={(val) => onYearChange({ target: { value: val } })}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="All Years" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Years</SelectItem>
+                <SelectItem value="all">All batches</SelectItem>
                 {years.map((year) => (
                   <SelectItem key={year} value={year}>
                     {year}

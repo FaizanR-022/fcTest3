@@ -11,7 +11,12 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "../../components/ui/pagination";
-import { PageContainer, PageHeader, LoadingSpinner, ErrorMessage } from "../../components/layout";
+import {
+  PageContainer,
+  PageHeader,
+  LoadingSpinner,
+  ErrorMessage,
+} from "../../components/layout";
 
 import { alumniService } from "../../services/alumniService";
 import { CAMPUSES, DEPARTMENTS, YEARS } from "../../constants/authConstants";
@@ -89,18 +94,15 @@ export default function AlumniList() {
     fetchAlumni(1); // Reset to page 1 when searching
   };
 
-  // Handle page change
   const handlePageChange = (newPage) => {
     fetchAlumni(newPage);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Navigate to alumni detail page
   const handleAlumniClick = (alumni) => {
     navigate(`/user/${alumni.id}`);
   };
 
-  // Transform backend alumni data to match AlumniCard expected format
   const transformAlumniForCard = (alumniData) => {
     return alumniData.map((alum) => ({
       id: alum.publicId,
@@ -130,8 +132,8 @@ export default function AlumniList() {
   const transformedAlumni = transformAlumniForCard(alumni);
 
   return (
-    <PageContainer>
-      <PageHeader 
+    <PageContainer childrenClassName="max-w-7xl">
+      <PageHeader
         title="Alumni Directory"
         subtitle="Connect with FAST-NUCES alumni from around the world"
       />
@@ -166,7 +168,9 @@ export default function AlumniList() {
           {/* Results Counter */}
           <div className="flex items-center justify-between mb-6">
             <p className="text-muted-foreground">
-              <span className="font-semibold text-foreground">{pagination.total}</span>{" "}
+              <span className="font-semibold text-foreground">
+                {pagination.total}
+              </span>{" "}
               alumni found
             </p>
           </div>
@@ -199,21 +203,33 @@ export default function AlumniList() {
                 <PaginationContent>
                   <PaginationItem>
                     <PaginationPrevious
-                      onClick={() => handlePageChange(Math.max(1, pagination.page - 1))}
-                      className={pagination.page === 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                      onClick={() =>
+                        handlePageChange(Math.max(1, pagination.page - 1))
+                      }
+                      className={
+                        pagination.page === 1
+                          ? "pointer-events-none opacity-50"
+                          : "cursor-pointer"
+                      }
                     />
                   </PaginationItem>
-                  
-                  {Array.from({ length: pagination.totalPages }, (_, i) => i + 1)
-                    .filter(page => {
+
+                  {Array.from(
+                    { length: pagination.totalPages },
+                    (_, i) => i + 1
+                  )
+                    .filter((page) => {
                       // Show first, last, current, and adjacent pages
-                      return page === 1 || 
-                             page === pagination.totalPages || 
-                             Math.abs(page - pagination.page) <= 1;
+                      return (
+                        page === 1 ||
+                        page === pagination.totalPages ||
+                        Math.abs(page - pagination.page) <= 1
+                      );
                     })
                     .map((page, index, array) => {
                       // Add ellipsis if there's a gap
-                      const showEllipsis = index > 0 && page - array[index - 1] > 1;
+                      const showEllipsis =
+                        index > 0 && page - array[index - 1] > 1;
                       return (
                         <span key={page} className="flex items-center">
                           {showEllipsis && (
@@ -233,11 +249,19 @@ export default function AlumniList() {
                         </span>
                       );
                     })}
-                  
+
                   <PaginationItem>
                     <PaginationNext
-                      onClick={() => handlePageChange(Math.min(pagination.totalPages, pagination.page + 1))}
-                      className={pagination.page === pagination.totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                      onClick={() =>
+                        handlePageChange(
+                          Math.min(pagination.totalPages, pagination.page + 1)
+                        )
+                      }
+                      className={
+                        pagination.page === pagination.totalPages
+                          ? "pointer-events-none opacity-50"
+                          : "cursor-pointer"
+                      }
                     />
                   </PaginationItem>
                 </PaginationContent>

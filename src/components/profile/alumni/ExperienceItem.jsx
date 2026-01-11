@@ -8,12 +8,7 @@ import { YEARS } from "../../../constants/authConstants";
 /**
  * Single previous experience item with company, position, and date range
  */
-export default function ExperienceItem({ 
-  index, 
-  control, 
-  errors, 
-  onRemove 
-}) {
+export default function ExperienceItem({ index, control, errors, onRemove }) {
   // Transform YEARS array to options format
   const yearOptions = YEARS.map((year) => ({
     value: year,
@@ -44,10 +39,10 @@ export default function ExperienceItem({
 
         {/* Role */}
         <ControlledInput
-          name={`previousExperiences.${index}.position`}
+          name={`previousExperiences.${index}.role`}
           control={control}
           label="Role"
-          error={errors.previousExperiences?.[index]?.position?.message}
+          error={errors.previousExperiences?.[index]?.role?.message}
         />
 
         {/* From & To */}

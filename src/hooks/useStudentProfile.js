@@ -6,6 +6,7 @@ import { updateStudentProfileSchema } from "../utils/profileValidationSchemas";
 import { userService } from "../services/userService";
 import useAuthStore from "../store/authStore";
 import { ROUTES } from "../constants/constants";
+import { toast } from "sonner";
 
 /**
  * Custom hook for student profile management
@@ -66,10 +67,7 @@ export const useStudentProfile = () => {
       const result = await userService.updateUserProfile(data);
       updateUser(result.user);
       setSuccess("Profile updated successfully!");
-
-      setTimeout(() => {
-        navigate(ROUTES.ALUMNI_LIST);
-      }, 2000);
+      toast.success("Profile updated successfully!");
     } catch (err) {
       setError(err.message || "Failed to update profile");
     } finally {

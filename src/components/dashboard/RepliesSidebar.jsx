@@ -13,7 +13,7 @@ export const RepliesSidebar = ({
       <Card>
         <CardHeader className="pb-3">
           <CardTitle className="text-base flex items-center gap-2">
-            💬 Recent Replies
+            Recent Replies
           </CardTitle>
         </CardHeader>
         <CardContent className="flex justify-center py-8">
@@ -27,7 +27,7 @@ export const RepliesSidebar = ({
     <Card>
       <CardHeader className="pb-3">
         <CardTitle className="text-base flex items-center gap-2">
-          💬 Recent Replies
+          Recent Replies
         </CardTitle>
       </CardHeader>
       <CardContent>

@@ -1,21 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate, Link } from "react-router-dom";
-import { Eye, EyeOff, Users, MessageSquare, Search, GraduationCap } from "lucide-react";
+import {
+  Eye,
+  EyeOff,
+  Users,
+  MessageSquare,
+  Search,
+  GraduationCap,
+} from "lucide-react";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
 import { Checkbox } from "../../components/ui/checkbox";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../../components/ui/card";
 import { ROUTES } from "../../constants/constants";
 import { loginSchema } from "../../utils/validationSchemas";
 import { useAuth } from "../../hooks/useAuth";
 
 export default function Login() {
-  const { login, error, clearError } = useAuth();
+  const { login, error, clearError, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate(ROUTES.DASHBOARD, { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   const {
     register,
@@ -70,7 +89,9 @@ export default function Login() {
                       className={errors.email ? "border-destructive" : ""}
                     />
                     {errors.email && (
-                      <p className="text-xs text-destructive">{errors.email.message}</p>
+                      <p className="text-xs text-destructive">
+                        {errors.email.message}
+                      </p>
                     )}
                   </div>
 
@@ -82,7 +103,9 @@ export default function Login() {
                         type={showPassword ? "text" : "password"}
                         placeholder="Enter your password"
                         {...register("password")}
-                        className={`pr-10 ${errors.password ? "border-destructive" : ""}`}
+                        className={`pr-10 ${
+                          errors.password ? "border-destructive" : ""
+                        }`}
                       />
                       <button
                         type="button"
@@ -97,7 +120,9 @@ export default function Login() {
                       </button>
                     </div>
                     {errors.password && (
-                      <p className="text-xs text-destructive">{errors.password.message}</p>
+                      <p className="text-xs text-destructive">
+                        {errors.password.message}
+                      </p>
                     )}
                   </div>
 
@@ -106,9 +131,14 @@ export default function Login() {
                       <Checkbox
                         id="remember"
                         checked={rememberMe}
-                        onCheckedChange={(checked) => setValue("rememberMe", checked)}
+                        onCheckedChange={(checked) =>
+                          setValue("rememberMe", checked)
+                        }
                       />
-                      <Label htmlFor="remember" className="text-sm cursor-pointer font-normal">
+                      <Label
+                        htmlFor="remember"
+                        className="text-sm cursor-pointer font-normal"
+                      >
                         Remember me
                       </Label>
                     </div>
@@ -117,13 +147,20 @@ export default function Login() {
                     </span>
                   </div>
 
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
                     {isSubmitting ? "Logging in..." : "Login"}
                   </Button>
 
                   <div className="text-center text-sm text-muted-foreground">
                     Don't have an account?{" "}
-                    <Link to={ROUTES.SIGNUP_CHOICE} className="text-primary hover:underline">
+                    <Link
+                      to={ROUTES.SIGNUP_CHOICE}
+                      className="text-primary hover:underline"
+                    >
                       Sign up here
                     </Link>
                   </div>
@@ -143,7 +180,8 @@ export default function Login() {
                   <h3 className="text-2xl font-semibold">Connect & Grow</h3>
                 </div>
                 <p className="text-muted-foreground text-lg">
-                  Join the FAST-NUCES community and unlock opportunities for mentorship, networking, and career growth.
+                  Join the FAST-NUCES community and unlock opportunities for
+                  mentorship, networking, and career growth.
                 </p>
               </div>
 
@@ -153,9 +191,12 @@ export default function Login() {
                     <Users className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Access Alumni Network</h4>
+                    <h4 className="font-semibold mb-1">
+                      Access Alumni Network
+                    </h4>
                     <p className="text-sm text-muted-foreground">
-                      Connect with thousands of successful alumni across the globe
+                      Connect with thousands of successful alumni across the
+                      globe
                     </p>
                   </div>
                 </div>
@@ -167,7 +208,8 @@ export default function Login() {
                   <div>
                     <h4 className="font-semibold mb-1">Get Career Guidance</h4>
                     <p className="text-sm text-muted-foreground">
-                      Ask questions and receive expert advice from industry professionals
+                      Ask questions and receive expert advice from industry
+                      professionals
                     </p>
                   </div>
                 </div>
@@ -177,7 +219,9 @@ export default function Login() {
                     <Search className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Discover Opportunities</h4>
+                    <h4 className="font-semibold mb-1">
+                      Discover Opportunities
+                    </h4>
                     <p className="text-sm text-muted-foreground">
                       Find mentors, job referrals, and professional connections
                     </p>

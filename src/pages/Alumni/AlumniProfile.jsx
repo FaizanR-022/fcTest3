@@ -16,7 +16,12 @@ import CurrentPositionSection from "../../components/profile/alumni/CurrentPosit
 import PreviousExperiencesSection from "../../components/profile/alumni/PreviousExperiencesSection";
 import SkillsManager from "../../components/profile/alumni/SkillsManager";
 import ControlledInput from "../../components/forms/ControlledInput";
-import { PageContainer, PageContent, BackButton, LoadingSpinner } from "../../components/layout";
+import {
+  PageContainer,
+  PageContent,
+  BackButton,
+  LoadingSpinner,
+} from "../../components/layout";
 
 export default function AlumniProfile() {
   const { user } = useAuthStore();
@@ -40,8 +45,8 @@ export default function AlumniProfile() {
   }
 
   return (
-    <PageContainer className="bg-gradient-to-br from-background via-muted/30 to-background">
-      <PageContent maxWidth="3xl">
+    <PageContainer>
+      <PageContent maxWidth="2xl">
         <BackButton />
 
         <Card>

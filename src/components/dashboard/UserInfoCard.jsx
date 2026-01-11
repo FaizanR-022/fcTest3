@@ -4,6 +4,7 @@ import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import useAuthStore from "../../store/authStore";
+import { ROUTES } from "../../constants/constants";
 
 export const UserInfoCard = () => {
   const navigate = useNavigate();
@@ -61,7 +62,15 @@ export const UserInfoCard = () => {
           <Button
             variant="outline"
             className="w-full mt-4"
-            onClick={() => navigate(`/user/${user?.publicId || user?.id}`)}
+            // onClick={() => navigate(`/user/${user?.publicId || user?.id}`)}
+            onClick={() =>
+              navigate(
+                ROUTES.USER_PROFILE.replace(
+                  ":userId",
+                  user?.publicId || user?.id
+                )
+              )
+            }
           >
             View Profile
           </Button>

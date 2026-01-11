@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <AppRoutes darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <Toaster position="top-right" closeButton richColors />
+      <Toaster position="top-right" closeButton richColors offset="80px" />
     </div>
   );
 }
